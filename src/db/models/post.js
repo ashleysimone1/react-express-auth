@@ -26,7 +26,7 @@ class Post {
   }
 
   static async findByUserID(user_id) {
-    const query = 'SELECT * FROM posts WHERE user_id = ?';
+    const query = 'SELECT * FROM posts WHERE id = ?';
     const args = [user_id];
     const { rows } = await knex.raw(query, args);
     const post = rows[0];
@@ -36,7 +36,7 @@ class Post {
   static async create(title, content, url, user_id ) {
     const passwordHash = await hashPassword(password);
 
-    const query = `INSERT INTO users (post_title, post_content, post_url, user_id)
+    const query = `INSERT INTO users (post_title, post_content, post_url, id)
       VALUES (?, ?, ?, ?) RETURNING *`;
     const args = [title, content, url, user_id];
     const { rows } = await knex.raw(query, args);
