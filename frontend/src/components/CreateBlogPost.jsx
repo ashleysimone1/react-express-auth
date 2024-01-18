@@ -7,7 +7,7 @@ export default function CreateBlogPost() {
   const { currentUser } = useContext(CurrentUserContext);
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const newPost = await createPost({ post_title: event.target['post-title'].value, post_content: event.target['post-content'].value, post_url: event.target['image-url'].value, user_id: event.target['user-id'].value });
+    const newPost = await createPost(Object.fromEntries(new FormData(event.target)));
 
   };
 
