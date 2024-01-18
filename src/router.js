@@ -13,7 +13,7 @@ Router.get('/users/:id', userController.show);
 
 Router.get('/posts', postController.listAll);
 Router.post('/posts', postController.createPost);
-Router.get('user/:id/posts/:id', postController.listMe);
+Router.get('user/:id/posts', postController.listMe);
 Router.delete('/posts/:id', postController.deletePost);
 
 Router.post('/login', userController.login);
