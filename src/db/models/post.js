@@ -36,7 +36,7 @@ class Post {
   static async create(title, content, url, user_id ) {
     const passwordHash = await hashPassword(password);
 
-    const query = `INSERT INTO users (post_title, post_content, post_url, id)
+    const query = `INSERT INTO posts (post_title, post_content, post_url, id)
       VALUES (?, ?, ?, ?) RETURNING *`;
     const args = [title, content, url, user_id];
     const { rows } = await knex.raw(query, args);
