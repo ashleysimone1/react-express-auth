@@ -1,7 +1,8 @@
-import { createPost } from "../../../src/controllers/post";
 import CurrentUserContext from "../contexts/current-user-context";
+import { useContext } from "react";
+import { createPost } from "../adapters/post-adapter";
 
-export default function UpdateUsernameForm() {
+export default function CreateBlogPost() {
   
   const { currentUser } = useContext(CurrentUserContext);
   const handleSubmit = async (event) => {
